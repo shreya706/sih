@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerbChain - Remedies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>🌿 HerbChain</h1>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="remedies.html">Remedies</a>
+      <a href="trace.html">Trace Herb</a>
+    </div>
+  </nav>
+
+  <section class="content">
+    <h2>Find Remedies</h2>
+    <input type="text" id="search" placeholder="Enter health concern..." onkeyup="filterHerbs()">
+
+    <div class="grid" id="herbGrid">
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="Ashwagandha">
+        <h3>Ashwagandha</h3>
+        <p>Reduces stress</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="Tulsi">
+        <h3>Tulsi</h3>
+        <p>Boosts immunity</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="Ginger">
+        <h3>Ginger</h3>
+        <p>Improves digestion</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HerbiChain</title>
+    <!--<meta name="description" content="Discover scientifically-backed herbal remedies with complete  blockchain transparency. From farm to doorstep, every herb is verified and traceable.">-->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Colors */
+        :root {
+            --primary: #22c55e;
+            --primary-dark: #16a34a;
+            --accent: #f59e0b;
+            --background: #ffffff;
+            --text: #1f2937;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --verified: #10b981;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px 20px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero .accent {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .mascot {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .mascot-image {
+            width: 300px;
+            height: 300px;
+            background: #f0fdf4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            margin: 0 auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+            min-height: 100vh;
+        }
+
+        .section {
+            display: none;
+            padding: 2rem;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Search Box */
+        .search-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .scientific-name {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .benefits-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--verified);
+            font-weight: bold;
+        }
+
+        /* Tracking Flowchart */
+        .tracking-container {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .tracking-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .tracking-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .step-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+        }
+
+        .pdf-link {
+            color: var(--primary);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .pdf-link:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Marketplace */
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .verified-badge-product {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--verified);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        /* Coming Soon */
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .coming-soon h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🌿 HerbiChain</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('remedy-finder')">Remedy Finder</a></li>
+                <li><a href="#" onclick="showSection('trace-herb')">Trace Your Herb</a></li>
+                <li><a href="#" onclick="showSection('marketplace')">Marketplace</a></li>
+                <li><a href="#" onclick="showSection('learning')">Learning</a></li>
+                <li><a href="#" onclick="showSection('community')">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero section active">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Keep Watering<br><span class="accent">Your Herbs</span></h1>
+                    <p>Discover scientifically-backed herbal remedies with complete blockchain transparency. From farm to your doorstep, every herb is verified and traceable.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="showSection('remedy-finder')">Find Your Remedy</button>
+                        <button class="btn btn-outline" onclick="showSection('trace-herb')">Trace an Herb</button>
+                    </div>
+                </div>
+                <div class="mascot">
+                    <div class="mascot-image">🌱</div>
+                    <div class="verified-badge">🌿 Verified Fresh</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Remedy Finder Section -->
+        <section id="remedy-finder" class="section">
+            <div class="container">
+                <h2>Find Your Natural Remedy</h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">
+                    Enter your health concern and discover scientifically-backed herbal solutions
+                </p>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" id="remedy-search" placeholder="Enter your health concern (e.g., stress, insomnia, fatigue)...">
+                    <button class="btn btn-primary" onclick="searchRemedy()">Search Remedies</button>
+                </div>
+                
+                <div id="remedy-results" class="hidden">
+                    <div class="card">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🌿</div>
+                            <div>
+                                <h3>Ashwagandha</h3>
+                                <p class="scientific-name">Withania somnifera</p>
+                            </div>
+                            <div style="margin-left: auto;">
+                                <span style="background: var(--verified); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">✓ Scientifically Verified</span>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-bottom: 1rem;">A powerful adaptogenic herb known for its stress-reducing and energy-boosting properties.</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1rem 0;">
+                            <div>
+                                <h4 style="color: var(--primary); margin-bottom: 1rem;">Benefits & Uses:</h4>
+                                <ul class="benefits-list">
+                                    <li>Reduces stress and anxiety</li>
+                                    <li>Improves sleep quality</li>
+                                    <li>Boosts energy and stamina</li>
+                                    <li>Supports immune system</li>
+                                    <li>Enhances cognitive function</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div style="margin-bottom: 1rem;">
+                                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Recommended Dosage:</h4>
+                                    <p style="color: var(--text-muted);">300-600mg daily with meals</p>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Side Effects:</h4>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem;">Generally safe, may cause drowsiness in some individuals</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                            <button class="btn btn-primary">View Full Research</button>
+                            <button class="btn btn-outline">Find Suppliers</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trace Herb Section -->
+        <section id="trace-herb" class="section">
+            <div class="container">
+                <h2>Trace Your Herb</h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">
+                    Enter herb name to view complete blockchain-verified supply chain
+                </p>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" id="trace-search" placeholder="Enter herb name (e.g., Ashwagandha)...">
+                    <button class="btn btn-primary" onclick="traceHerb()">Trace Herb</button>
+                </div>
+                
+                <div id="trace-results" class="hidden">
+                    <div class="tracking-container">
+                        <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">Ashwagandha Supply Chain Journey</h3>
+                        
+                        <div class="tracking-steps">
+                            <div class="tracking-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Farm Collection</h4>
+                                    <p><strong>Location:</strong> Organic Farm, Rajasthan, India</p>
+                                    <p><strong>Date:</strong> March 15, 2024</p>
+                                    <p><strong>GPS:</strong> 26.9124° N, 75.7873° E</p>
+                                </div>
+                            </div>
+                            
+                            <div class="tracking-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Quality Testing</h4>
+                                    <p><strong>Lab:</strong> HerbiLab Certified Testing</p>
+                                    <p><strong>Tests:</strong> Pesticide, Heavy metals, DNA authentication</p>
+                                    <p><strong>Status:</strong> ✅ All tests passed</p>
+                                    <a href="#" class="pdf-link" onclick="showPDF('lab-report')">View Lab Report PDF</a>
+                                </div>
+                            </div>
+                            
+                            <div class="tracking-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Processing</h4>
+                                    <p><strong>Facility:</strong> GMP Certified Processing Unit</p>
+                                    <p><strong>Process:</strong> Cleaned, dried, and powdered</p>
+                                    <p><strong>Date:</strong> March 20, 2024</p>
+                                </div>
+                            </div>
+                            
+                            <div class="tracking-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Packaging & Distribution</h4>
+                                    <p><strong>Batch ID:</strong> ASH2024-03-001</p>
+                                    <p><strong>Packaging Date:</strong> March 25, 2024</p>
+                                    <p><strong>Certificates:</strong> Organic, FSSAI, NMPB</p>
+                                    <a href="#" class="pdf-link" onclick="showPDF('certificates')">View Certificates PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marketplace Section -->
+        <section id="marketplace" class="section">
+            <div class="container">
+                <h2>HerbiChain Marketplace</h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">
+                    Premium herbs with complete blockchain verification and traceability
+                </p>
+                
+                <div class="marketplace-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="verified-badge-product">HerbiChain Verified</div>
+                            🌿
+                        </div>
+                        <div class="product-info">
+                            <h3>Ashwagandha</h3>
+                            <p class="scientific-name">Withania somnifera</p>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin: 0.5rem 0;">
+                                <span style="color: gold;">★★★★★</span>
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">4.8 (342 reviews)</span>
+                            </div>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0.5rem 0;">📍 Himalayan Herbs Co., Uttarakhand, India</p>
+                            <div style="display: flex; align-items: center; gap: 1rem; margin: 1rem 0;">
+                                <span class="product-price">₹899</span>
+                                <span style="text-decoration: line-through; color: var(--text-muted);">₹1,299</span>
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">500g</span>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; margin: 1rem 0;">
+                                <button class="btn btn-primary" style="flex: 1;">Add to Cart</button>
+                                <button class="btn btn-outline">🚚</button>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--verified); border-top: 1px solid var(--border); padding-top: 0.5rem;">
+                                ✓ 100% Authentic • Blockchain Verified • Lab Tested
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                        All products are verified through our blockchain network
+                    </p>
+                    <button class="btn btn-outline">View All Products</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Section -->
+        <section id="learning" class="section">
+            <div class="coming-soon">
+                <h2>Learning Hub</h2>
+                <p>Interactive courses and tutorials coming soon!</p>
+                <div style="font-size: 4rem; margin: 2rem 0;">📚</div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="section">
+            <div class="coming-soon">
+                <h2>Community</h2>
+                <p>Connect with herb enthusiasts and experts!</p>
+                <div style="font-size: 4rem; margin: 2rem 0;">👥</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function searchRemedy() {
+            const searchInput = document.getElementById('remedy-search');
+            const resultsDiv = document.getElementById('remedy-results');
+            
+            if (searchInput.value.trim()) {
+                resultsDiv.classList.remove('hidden');
+                resultsDiv.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function traceHerb() {
+            const searchInput = document.getElementById('trace-search');
+            const resultsDiv = document.getElementById('trace-results');
+            
+            if (searchInput.value.trim()) {
+                resultsDiv.classList.remove('hidden');
+                resultsDiv.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function showPDF(type) {
+            if (type === 'lab-report') {
+                alert('Lab Report PDF would open here\n\nContains:\n- Pesticide Analysis: PASSED\n- Heavy Metal Test: PASSED\n- DNA Authentication: CONFIRMED\n- Purity: 98.5%');
+            } else if (type === 'certificates') {
+                alert('Certificates PDF would open here\n\nContains:\n- Organic Certification\n- FSSAI License\n- NMPB Compliance\n- GMP Certificate');
+            }
+        }
+
+        // Allow Enter key to trigger search
+        document.getElementById('remedy-search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchRemedy();
+            }
+        });
+
+        document.getElementById('trace-search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                traceHerb();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerbChain MVP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div id="splash">
+    <img src="mascot.gif" alt="Mascot" class="mascot">
+    <h2>Keep watering your herbs 🌱</h2>
+  </div>
+
+  <!-- Main Website -->
+  <div id="main" style="display:none;">
+    <nav class="navbar">
+      <h1>🌿 HerbChain</h1>
+      <div>
+        <a href="#" onclick="showSection('remedy')">Remedy Finder</a>
+        <a href="#" onclick="showSection('trace')">Trace Your Herb</a>
+        <a href="#" onclick="showSection('market')">Marketplace</a>
+        <a href="#" onclick="showSection('learning')">Learning</a>
+        <a href="#" onclick="showSection('community')">Community</a>
+      </div>
+    </nav>
+
+    <!-- Sections -->
+    <section id="remedy" class="content" style="display:none;">
+      <h2>Find Remedies</h2>
+      <input type="text" id="remedyInput" placeholder="Enter your problem...">
+      <button onclick="findRemedy()">Search</button>
+      <div id="remedyResult"></div>
+    </section>
+
+    <section id="trace" class="content" style="display:none;">
+      <h2>Trace Your Herb</h2>
+      <input type="text" id="traceInput" placeholder="Enter herb name...">
+      <button onclick="traceHerb()">Trace</button>
+      <div id="traceResult"></div>
+    </section>
+
+    <section id="market" class="content" style="display:none;">
+      <h2>Marketplace</h2>
+      <p>Ashwagandha – HerbChain Verified ✅</p>
+    </section>
+
+    <section id="learning" class="content" style="display:none;">
+      <h2>Learning</h2>
+      <p>Coming Soon...</p>
+    </section>
+
+    <section id="community" class="content" style="display:none;">
+      <h2>Community</h2>
+      <p>Coming Soon...</p>
+    </section>
+
+    <section id="info" class="content" style="display:none;">
+      <h2>Herb Info</h2>
+      <input type="text" id="infoInput" placeholder="Enter herb name...">
+      <button onclick="getHerbInfo()">Get Info</button>
+      <div id="infoResult"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

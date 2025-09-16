@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Herbchain</title>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      margin: 0; padding: 0;
+      background: #fdfaf1;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      box-sizing:border-box;
+      align-items: center;
+      padding: 15px 50px;
+      background: #fdfaf1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 20px;
+      color: #2d6a4f;
+      display: flex; align-items: center;
+    }
+    header h1 span {
+      margin-left: 8px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    nav a:hover { color: #2d6a4f; }
+    .login-btn {
+      background: #2d6a4f;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero img {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      color: #666;
+      font-size: 16px;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .buttons button {
+      background: #2d6a4f;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .buttons button:hover { background: #40916c; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌱 <span>HerbChain</span></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="remedy.html">Remedy Finder</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="learning.html">Learning</a>
+      <a href="community.html">Community</a>
+    </nav>
+    <a href="#" class="login-btn">Login/Signup</a>
+  </header>
+
+  <section class="hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Emoji_u1f331.svg" alt="Leaf Logo">
+    <h2>Trust Your Herbs, From Farm to You</h2>
+    <p>Discover remedies, verify authenticity, and connect with Ayurveda</p>
+    <div class="buttons">
+      <button onclick="location.href='remedy.html'">Find Remedies</button>
+      <button>Trace Your Herb</button>
+      <button>Herb Info</button>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerbChain 🌿</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>🌿 HerbChain</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="traceability.html">Traceability</a>
+      <a href="#">Community</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="assets/mascot.png" alt="Herb Mascot" class="mascot">
+    <h2>Trust Your Herbs, From Root to Remedy</h2>
+    <p>Scan. Verify. Learn.</p>
+    <button onclick="showSearch()">Get Started 🌱</button>
+  </section>
+
+  <!-- Remedy Finder -->
+  <section id="remedy-finder" class="hidden">
+    <h2>Find Herbal Remedies</h2>
+    <input type="text" id="searchBox" placeholder="Enter your health problem...">
+    <button onclick="searchRemedy()">Search</button>
+    <div id="results"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

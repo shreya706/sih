@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f3f9f4;
+}
+nav {
+  margin: 20px;
+}
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: green;
+  font-weight: bold;
+}
+button {
+  padding: 10px 20px;
+  background: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#qrcode {
+  margin-top: 20px;
+}
