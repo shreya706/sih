@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HerbChain</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HerbChain - Trust Your Herbs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="assets/logo.png" alt="HerbChain Logo">
-        <span>HerbChain</span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Remedy Finder</a></li>
-        <li><a href="#">Marketplace</a></li>
-        <li><a href="#">Learning</a></li>
-        <li><a href="#">Community</a></li>
-      </ul>
-      <a href="#" class="login-btn">Login/Signup</a>
-    </nav>
-  </header>
+    <header class="navbar">
+        <div class="logo">
+        <img src="images/logo-icon.png" alt="HerbChain leaf icon" class="logo-icon">
+        HerbChain
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Remedy Finder</a></li>
+                <li><a href="#" class="nav-link">Marketplace</a></li>
+                <li><a href="#" class="nav-link">Learning</a></li>
+                <li><a href="#" class="nav-link">Community</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="login-button">Login/Signup</a>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>HerbChain – Trust Your Herbs, From Farm to You</h1>
-    <p>Discover remedies, verify authenticity, and connect with Ayurveda</p>
-    <div class="hero-buttons">
-      <a href="#" class="btn btn-primary">Find Remedies</a>
-      <a href="#" class="btn btn-secondary">Verify Product</a>
-    </div>
-  </section>
+    <main class="hero">
+        <img src="images/plant-animation.gif" alt="Animated growing plant" class="hero-animation">
+        <div class="hero-content">
+            <h1>HerbChain-Trust Your Herbs, From Farm to You</h1>
+            <p>Discover remedies, verify authenticity, and connect with Ayurveda</p>
+            <div class="cta-buttons">
+                <button class="cta-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Find Remedies
+                </button>
+                <button class="cta-button">
+                    <i class="fa-solid fa-qrcode"></i>
+                    Trace Your Herb
+                </button>
+                <button class="cta-button">
+                    <i class="fa-solid fa-seedling"></i>
+                    Herb Info
+                </button>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>

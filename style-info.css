@@ -1,0 +1,136 @@
+/* General Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #FCFBF8;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: #FCFBF8;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4A7729;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #6B9B49;
+}
+
+.nav-link.active {
+    font-weight: 700;
+    color: #2e2e2e;
+}
+
+/* Main Product Container - Uses CSS Grid for layout */
+.product-info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two equal columns */
+    gap: 60px; /* Space between columns */
+    max-width: 1200px;
+    margin: 60px auto; /* Centers the container on the page */
+    padding: 0 40px;
+    align-items: center;
+}
+
+/* Left Column Styling */
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-gallery h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #2e2e2e;
+    margin-bottom: 0;
+}
+
+.product-gallery .scientific-name {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Prevents image from stretching */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.buy-button {
+    background-color: #4A7729;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #3b5f21;
+    transform: translateY(-3px);
+}
+
+/* Right Column Styling */
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.detail-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.detail-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* Nested grid for the bottom two detail sections */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
