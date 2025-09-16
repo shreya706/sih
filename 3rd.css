@@ -1,0 +1,150 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f1ec;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* items flow left to right */
+  padding: 15px 30px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  gap: 60px; /* space between search and links */
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid #1E1E1E;
+  border-radius: 25px;
+  padding: 5px 10px;
+  background: white;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 200px;
+  margin-left: 5px;
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
+}
+
+.navbar a.active {
+  font-weight: bold;
+}
+
+/* Marketplace */
+.marketplace {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 40px;
+  position: relative;
+}
+
+.card {
+  background-color: #fff5df;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  width: 530px;
+  height: 606px;
+  top: 181px;
+  left: 662px;
+  padding: 10px;
+  text-align: center;
+}
+
+.card img {
+  width: 463px;
+  height: 308.11px;
+  top: 208px;
+  left: 143px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card h3 {
+  margin: 10px 0;
+  font: inter;
+  width: 253px;
+  height: 44px;
+  opacity: 1;
+  top: 541px;
+  left: 164px;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card button {
+  display: block;
+  width: 80%;
+  width: 328;
+height: 55;
+opacity: 1;
+top: 610px;
+left: 211px;
+border-radius: 12px;
+box-shadow: 0px 4px 4px 0px #00000040;
+  margin: 10px auto;
+  padding: 15px;
+  background-color: #918c85;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.card button:hover {
+  background-color: #706363;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}

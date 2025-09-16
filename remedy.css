@@ -1,0 +1,156 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #FDFAF1; /* light cream */
+  color: #000000;
+}
+
+/* Remedy Finder Section */
+.remedy-finder {
+  text-align: center;
+  padding: 80px 40px;
+  background-color: #FDFAF1;
+}
+
+.remedy-finder h2 {
+  font-size: 64px;
+  font-weight: 700;
+  color: #72A874;
+  margin-bottom: 40px;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 50px;
+  width: 60%;
+  max-width: 600px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 20px 20px 20px 60px; /* space for icon */
+  font-size: 32px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* MingCute Icon */
+.search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  color: #777;
+}
+
+
+/* Remedy Cards */
+.remedy-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.remedy-icon {
+  width: 150px;
+  height: 143px;
+  margin: 0 auto 20px; /* centers the icon above text */
+  display: block;
+}
+
+
+.card {
+  background: #FFF4DC;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  width: 330px;
+  height: 454px;
+  padding: 30px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card .icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #315041;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.view-btn {
+  background: #3C6D4F;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.view-btn:hover {
+  background: #225036;
+}
+
+/* Herb Icon Wrapper with Circle Overlay */
+.icon-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px; /* centers icon inside card */
+}
+
+.remedy-icon {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  bottom: 5px;   /* adjust position */
+  left: 5px;
+  opacity: 0.9;
+}
+
+/* Circle colors */
+.circle-sage {
+  background: #735959;
+}
+
+.circle-ashwa {
+  background: #92A088;
+}
+
+.circle-ginger {
+  background: #918C85;
+}
