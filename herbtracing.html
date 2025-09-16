@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trace Your Herb - HerbChain</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fdf9;
+    }
+
+    header {
+      background: #fff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    header h2 {
+      color: #2e7d32;
+      margin: 0;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .search-box input {
+      padding: 10px;
+      width: 60%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      padding: 10px 20px;
+      background: #2e7d32;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .qr-box {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .timeline {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #fdfdfd;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card h3 {
+      margin: 0;
+      color: #2e7d32;
+    }
+
+    .date {
+      background: #e6f4ea;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #2e7d32;
+    }
+
+    .certificates {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .cert-btn {
+      padding: 12px 20px;
+      background: #dcedc8;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>🌿 HerbChain</h2>
+  </header>
+
+  <div class="container">
+    <div class="search-box">
+      <input type="text" id="herbName" placeholder="Enter Herb Name (e.g., Ashwagandha)">
+      <button onclick="generateQR()">Generate QR</button>
+    </div>
+
+    <div class="qr-box" id="qrBox"></div>
+
+    <div class="timeline" id="timeline">
+      <h2 id="herbTitle">Herb Supply Chain</h2>
+
+      <div class="card">
+        <div>
+          <h3>Farm Collection</h3>
+          <p>Harvested from certified organic farm in Rajasthan, India<br>
+          GPS: 26.9124° N, 75.7873° E</p>
+        </div>
+        <span class="date">15 Jan 2024 ✅</span>
+      </div>
+
+      <div class="card">
+        <div>
+          <h3>Quality Testing</h3>
+          <p>Lab analysis for purity, potency, and safety<br>
+          Moisture: 8.2%, Heavy metals: Within limits</p>
+        </div>
+        <span class="date">18 Jan 2024 ✅</span>
+      </div>
+
+      <div class="card">
+        <div>
+          <h3>Processing & Packaging</h3>
+          <p>Cleaned, dried, and packaged under GMP conditions<br>
+          Batch #ASH240122-001</p>
+        </div>
+        <span class="date">22 Jan 2024 ✅</span>
+      </div>
+
+      <div class="card">
+        <div>
+          <h3>Distribution</h3>
+          <p>Shipped to verified retailers and distributors<br>
+          Cold chain maintained</p>
+        </div>
+        <span class="date">25 Jan 2024 ✅</span>
+      </div>
+
+      <h3>Certificates & Lab Reports</h3>
+      <div class="certificates">
+        <button class="cert-btn">Organic Certification (PDF)</button>
+        <button class="cert-btn">Lab Analysis Report (PDF)</button>
+        <button class="cert-btn">NMPB Compliance Certificate (PDF)</button>
+        <button class="cert-btn">Good Collection Practice (PDF)</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    function generateQR() {
+      let herb = document.getElementById("herbName").value.trim();
+      if (!herb) {
+        alert("Please enter a herb name!");
+        return;
+      }
+
+      document.getElementById("qrBox").innerHTML = "";
+      QRCode.toCanvas(herb, { width: 150 }, function (err, canvas) {
+        if (err) console.error(err);
+        document.getElementById("qrBox").appendChild(canvas);
+
+        // Show timeline on QR generation
+        document.getElementById("timeline").style.display = "block";
+        document.getElementById("herbTitle").innerText = herb + " Supply Chain";
+      });
+    }
+  </script>
+</body>
+</html>
