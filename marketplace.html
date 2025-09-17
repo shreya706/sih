@@ -1,13 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Marketplace</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align:center; padding:50px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herb Marketplace</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            text-align: center; /* centers heading & search bar */
+        }
+
+        h1 {
+            margin-bottom: 15px;
+        }
+
+        .search-bar {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            margin-bottom: 30px; /* space before product cards */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .herb-container {
+            display: flex;
+            justify-content: center; /* centers items horizontally */
+            gap: 20px;
+            flex-wrap: nowrap; /* keep in one line */
+        }
+
+        .herb-card {
+            background-color: hsl(318, 100%, 90%);
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .herb-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .herb-card h3 {
+            margin: 15px 0;
+            font-size: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            background-color: #A1887F;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #8D6E63;
+        }
+    </style>
 </head>
 <body>
-  <h1>Marketplace (Coming Soon)</h1>
+
+    <h1>Find your products.</h1>
+    <input type="text" placeholder="Search your herb" class="search-bar">
+
+    <main class="herb-container">
+        <div class="herb-card">
+            <img src="ashwagandha.jpg" alt="Ashwagandha">
+            <h3>Ashwagandha</h3>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="herb-card">
+            <img src="basil.jpg" alt="Basil">
+            <h3>Basil</h3>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+    </main>
+
 </body>
 </html>
