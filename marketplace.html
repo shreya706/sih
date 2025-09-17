@@ -12,6 +12,23 @@
             padding: 20px;
             text-align: center; /* centers heading & search bar */
         }
+        header {
+      background: #fff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+     nav a { margin:0 15px; text-decoration:none; color:#333; font-weight:500; }
+    nav a:hover { color:#2d6a4f; }
+    .login-btn { background:#2d6a4f; color:white; padding:8px 18px; border-radius:20px; text-decoration:none; font-weight:bold; }
+
+    header h2 {
+      color: #2e7d32;
+      margin: 0;
+    }
+
 
         h1 {
             margin-bottom: 15px;
@@ -70,7 +87,17 @@
     </style>
 </head>
 <body>
-
+     <header>
+    <h2>🌿 HerbChain</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="remedy.html">Remedy Finder</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="learning.html">Learning</a>
+      <a href="community.html">Community</a>
+    </nav>
+    <a href="#" class="login-btn">Login/Signup</a>
+  </header>
     <h1>Find your products.</h1>
     <input type="text" placeholder="Search your herb" class="search-bar">
 
